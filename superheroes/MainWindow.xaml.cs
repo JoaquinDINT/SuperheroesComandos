@@ -18,15 +18,5 @@ namespace superheroes
             InitializeComponent();
             DataContext = vm;
         }
-
-        private void MasClick(object sender, MouseButtonEventArgs e)
-        {
-            vm.Avanza();
-        }
-
-        private void MenosClick(object sender, MouseButtonEventArgs e)
-        {
-            vm.Retrocede();
-        }
     }
 }

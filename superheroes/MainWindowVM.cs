@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,7 +41,8 @@ namespace superheroes
             }
         }
 
-
+        public RelayCommand SiguienteCommand { get; }
+        public RelayCommand AnteriorCommand { get; }
 
         private int contador = 0;
         private readonly List<Superheroe> listaHeroes;
@@ -51,6 +53,8 @@ namespace superheroes
             listaHeroes = Superheroe.GetSamples();
             SuperheroeActual = listaHeroes[0];
             ContadorActual = "1/3";
+            SiguienteCommand = new RelayCommand(Avanza);
+            AnteriorCommand = new RelayCommand(Retrocede);
         }
 
         public void Avanza()

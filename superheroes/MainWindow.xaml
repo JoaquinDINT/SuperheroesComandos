@@ -127,6 +127,15 @@
         </Style>
         
     </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding Path = AnteriorCommand}"
+                    Key="R"
+                    Modifiers="Ctrl" />
+        <KeyBinding Command="{Binding Path = SiguienteCommand}"
+                    Key="A"
+                    Modifiers="Ctrl" />
+    </Window.InputBindings>
     
     <Border x:Name="PrincipalBorder"
             Style="{StaticResource PrincipalBorderStyle}">
@@ -150,28 +159,15 @@
         <StackPanel DockPanel.Dock="Bottom"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <Image Source="assets/arrow.png"
-                   Height="25"
-                       MouseLeftButtonDown="MenosClick" />
-            <TextBlock x:Name="PosicionTextBlock"
+                <Button Content="Retroceder"
+                        Command="{Binding Path = AnteriorCommand}"/>
+                <TextBlock x:Name="PosicionTextBlock"
                        Text="{Binding Path=ContadorActual}"
                        FontSize="14"
                        FontWeight="Bold" />
-            <Image Source="assets/arrow.png"
-                   Height="25"
-                   
-                   RenderTransformOrigin="0.5,0.5"
-                       MouseLeftButtonDown="MasClick">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform Angle="180" />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-        </StackPanel>
+                <Button Content="Avanzar"
+                        Command="{Binding Path = SiguienteCommand}" />
+            </StackPanel>
             <Border Style="{StaticResource SuperheroeBorder}">
                 <Image Style="{StaticResource SuperheroeImage}" />
             </Border>
