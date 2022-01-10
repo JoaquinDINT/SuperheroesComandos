@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using superheroes.Servicio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,7 +51,7 @@ namespace superheroes
 
         public MainWindowVM()
         {
-            listaHeroes = Superheroe.GetSamples();
+            listaHeroes = ListaPersonajes.GetSamples();
             SuperheroeActual = listaHeroes[0];
             ContadorActual = "1/3";
             SiguienteCommand = new RelayCommand(Avanza);
